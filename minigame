@@ -1,0 +1,41 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-minigame',
+  templateUrl: './minigame.component.html',
+  styleUrls: ['./minigame.component.css']
+})
+export class MinigameComponent {
+  public gameStarted: boolean;
+  public score: number;
+  public gameOver: boolean;
+  public gameLevel: number;
+
+  constructor() {
+    this.gameStarted = false;
+    this.score = 0;
+    this.gameOver = false;
+    this.gameLevel = 1;
+  }
+
+  // Start the game
+  startGame() {
+    this.gameStarted = true;
+  }
+
+  // Stop the game
+  endGame() {
+    this.gameStarted = false;
+    this.gameOver = true;
+  }
+
+  // Increase the score
+  increaseScore(points) {
+    this.score += points;
+  }
+
+  // Advance to the next level
+  increaseLevel() {
+    this.gameLevel++;
+  }
+
