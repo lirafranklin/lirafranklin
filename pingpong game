@@ -1,0 +1,24 @@
+import React, { useState } from 'react';
+
+const PongGame = () => {
+  const [player1Score, setPlayer1Score] = useState(0);
+  const [player2Score, setPlayer2Score] = useState(0);
+  const [player1Serve, setPlayer1Serve] = useState(true);
+
+  const handlePlayer1Score = () => {
+    setPlayer1Score(player1Score + 1);
+    setPlayer1Serve(false);
+  };
+
+  const handlePlayer2Score = () => {
+    setPlayer2Score(player2Score + 1);
+    setPlayer1Serve(true);
+  };
+
+  return (
+    <div>
+      <div> Player 1: {player1Score} </div>
+      <div> Player 2: {player2Score} </div>
+      <button onClick={handlePlayer1Score}>Player 1 scores</button>
+      <button onClick={handlePlayer2Score}>Player 2 scores</button>
+      {player1Serve ? <div> Player 1 to serve </div> : <div>
